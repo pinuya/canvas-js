@@ -12,10 +12,10 @@ document.querySelectorAll(".colorArea .color").forEach((item) => {
   item.addEventListener("click", colorClickEvent);
 });
 
-screen.addEventListener("mmousedown", mouseDownEvent);
+screen.addEventListener("mousedown", mouseDownEvent);
 screen.addEventListener("mousemove", mouseMoveEvent);
 screen.addEventListener("mouseup", mouseUpEvent);
-document.querySelector(.clear).addEventListener('.click', clearScreen)
+document.querySelector(".clear").addEventListener(".click", clearScreen);
 
 //functions
 function colorClickEvent(e) {
@@ -29,10 +29,10 @@ function colorClickEvent(e) {
 function mouseDownEvent(e) {
   canDraw = true;
   mouseX = e.pageX - screen.offsetLeft;
-  mouseY = e.pageY = screen.offsetTopTop;
+  mouseY = e.pageY - screen.offsetTopTop;
 }
 
-function mouseMoveEvent() {
+function mouseMoveEvent(e) {
   if (canDraw) {
     draw(e.pageX, e.pageY);
   }
@@ -59,7 +59,7 @@ function draw(x, y) {
   mouseY = pointY;
 }
 
-function clearScreen(){
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+function clearScreen() {
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
